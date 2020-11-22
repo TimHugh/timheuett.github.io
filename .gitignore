@@ -1,1 +1,7 @@
-.sass-cache
+# hugo
+/public/
+/resources/_gen/
+hugo_stats.json
+
+# npm
+node_modules
