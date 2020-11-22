@@ -1,4 +1,3 @@
 baseURL = "https://timheuett.com/"
 languageCode = "en-us"
 title = "Tim Heuett"
-theme = "hugo-theme-console"
