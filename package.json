@@ -4,7 +4,8 @@
   "description": "Source for https://timheuett.com",
   "main": "postcss.config.js",
   "scripts": {
-    "dev": "hugo serve"
+    "dev": "hugo serve",
+    "build-production": "NODE_ENV=production hugo --minify"
   },
   "repository": {
     "type": "git",

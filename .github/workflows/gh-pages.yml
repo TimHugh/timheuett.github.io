@@ -9,21 +9,30 @@ jobs:
   deploy:
     runs-on: ubuntu-18.04
     steps:
-      - uses: actions/checkout@v2
+      - name: checkout
+        uses: actions/checkout@v2
         with:
           submodules: true
           fetch-depth: 0
 
-      - name: Setup Hugo
+      - name: setup hugo
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: '0.78.2'
           extended: true
 
-      - name: Build
-        run: hugo --minify
+      - name: setup npm
+        uses: actions/setup-node@v1
+        with:
+          node-version: ''
 
-      - name: Deploy
+      - name: npm install
+        run: npm install
+
+      - name: build
+        run: npm run build-production
+
+      - name: deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
