@@ -1,19 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>{{ .Title }}</title>
-
-        {{ $styles := resources.Get "css/main.css" }}
-        {{ $styles = $styles | resources.PostCSS (dict "inlineImports" true) }}
-
-        {{ if hugo.IsProduction }}
-            {{ $styles = $styles | minify }}
-        {{ end }}
-
-        <link href="{{ $styles.Permalink }}" rel="stylesheet" />
+        {{- partial "head.html" . -}}
     </head>
-
     <body>
-        {{ block "main" . }}{{ end }}
+        {{- partial "header.html" . -}}
+        {{- block "main" . }}{{- end }}
+        {{- partial "footer.html" . -}}
     </body>
 </html>
